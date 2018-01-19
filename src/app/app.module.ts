@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 
 // components
 import { CoursesManualComponent } from './courses-manual.component';
+import { CoursesComponent } from './courses/courses.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CoursesManualComponent
+    CoursesManualComponent,
+    CoursesComponent
   ],
   imports: [
     BrowserModule
