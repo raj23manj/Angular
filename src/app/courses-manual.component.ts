@@ -9,12 +9,12 @@ import { CoursesService } from './courses.service';
   selector: 'courses-manual', // <courses-manual></courses-manual>
   template: `
               <h2>{{title}}</h2>
-              <h2 [textContent]="title"></h2>
-              <img src="{{ imageUrl }}">
-              <img [src]="imageUrl">
+              <table>
+                <td [attr.colspan]="colSpan"> for attr binding need to attr. 99% cases not needed but rare cases</td>
+              </table>
             `
 })
 export class CoursesManualComponent {
    title = "List of courses";
-   imageUrl = "https://www.thespruce.com/how-to-care-for-puppies-1117475";
+   colSpan = 2;
 }
