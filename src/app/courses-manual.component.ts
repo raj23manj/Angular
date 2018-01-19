@@ -1,9 +1,12 @@
 
 import { Component } from '@angular/core'
 
+//service
+import { CoursesService } from './courses.service';
+
 // decorator function
 @Component({
-  selector: 'courses-manual', // <courses></courses>
+  selector: 'courses-manual', // <courses-manual></courses-manual>
   template: `
               <h2>{{ getTitle() }}</h2>
               <ul>
@@ -15,7 +18,12 @@ import { Component } from '@angular/core'
 })
 export class CoursesManualComponent {
  title = "List of courses";
- courses = ["course1", "course2", "course3"]
+ courses;
+
+ constructor(){
+    let service = new CoursesService();
+    this.courses = service.getCourses();
+ }
 
  getTitle() {
    return this.title;
