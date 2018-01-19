@@ -9,7 +9,7 @@ import { CoursesService } from './courses.service';
   selector: 'courses-manual', // <courses-manual></courses-manual>
   template: `
               <h2>{{title}}</h2>
-              <button class="btn btn-primary" [class.active]="isActive">Save</button>
+              <button [style.background-color]="isActive ? 'blue' : 'white'">Save</button>
             `
 })
 export class CoursesManualComponent {
