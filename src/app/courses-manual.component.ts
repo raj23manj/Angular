@@ -9,10 +9,14 @@ import { CoursesService } from './courses.service';
   selector: 'courses-manual', // <courses-manual></courses-manual>
   template: `
               <h2>{{title}}</h2>
-              <button [style.background-color]="isActive ? 'blue' : 'white'">Save</button>
+              <button (click)="onSave($event)">Save</button>
             `
 })
 export class CoursesManualComponent {
    title = "List of courses";
-   isActive = true;
+
+   onSave($event){
+     //$event.stopPropogation; // to stop event propogation
+     console.log('button clicked', $event);
+   }
 }
