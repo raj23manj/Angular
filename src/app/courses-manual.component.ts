@@ -1,7 +1,7 @@
 
 import { Component } from '@angular/core'
 
-//service
+//services
 import { CoursesService } from './courses.service';
 
 // decorator function
@@ -17,15 +17,14 @@ import { CoursesService } from './courses.service';
             `
 })
 export class CoursesManualComponent {
- title = "List of courses";
- courses;
+   title = "List of courses";
+   courses;
 
- constructor(){
-    let service = new CoursesService();
-    this.courses = service.getCourses();
- }
+   constructor(service: CoursesService){
+      this.courses = service.getCourses();
+   }
 
- getTitle() {
-   return this.title;
- }
+   getTitle() {
+     return this.title;
+   }
 }

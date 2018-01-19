@@ -6,21 +6,23 @@ import { AppComponent } from './app.component';
 
 // components
 import { CoursesManualComponent } from './courses-manual.component';
-import { CoursesComponent } from './courses/courses.component';
+//import { CoursesComponent } from './courses/courses.component';
 
 //services
-
+import { CoursesService } from './courses.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CoursesManualComponent,
-    CoursesComponent
+    CoursesManualComponent
+    //CoursesComponent
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    CoursesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
