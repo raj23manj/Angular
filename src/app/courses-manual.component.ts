@@ -8,24 +8,19 @@ import { CoursesService } from './courses.service';
 @Component({
   selector: 'courses-manual', // <courses-manual></courses-manual>
   template: `
-              <h2>{{title}}</h2>
-              <input [(ngModel)]= "email" (keyup.enter)="onSave()"/>
+              {{ course.title | uppercase | lowercase }} <br/>
+              {{ course.students | number }} <br/>
+              {{ course.rating | number:'2.2-2' }} <br/>
+              {{ course.price | currency:'AUD':true:'3.2-2' }} <br/>
+              {{ course.releaseDate | date:'shortDate' }} <br/>
             `
-            // <button (keyup)="onSave($event)">Save</button>
-            // <input  (keyup.enter)="onSave($event)"/>
-            // <input #email (keyup.enter)="onSave(email.value)"/>
-            //<input [value]= "email" (keyup.enter)="onSave()"/>
-            //<input [value]= "email" (keyup.enter)="email=$event.target.value ;onSave()"/>
 })
 export class CoursesManualComponent {
-   title = "List of courses";
-   email = 'me@example.com';
-
-   onSave(){
-     //$event.stopPropogation; // to stop event propogation
-     //if($event.keyCode === 13) console.log('Enter was pressed');
-    //  console.log($event.target.value);
-    console.log(this.email);
-
-   }
+  course = {
+    title: "The Complete Angular Course",
+    rating: 4.9745,
+    students: 30123,
+    price: 190.95,
+    releaseDate: new Date(2016, 3, 1)
+  }
 }
