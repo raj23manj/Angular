@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 // components
 import { CoursesManualComponent } from './courses-manual.component';
 import { FavoriteComponent } from './favorite/favorite.component';
+import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.component';
 
 //import { CoursesComponent } from './courses/courses.component';
 
@@ -24,7 +25,8 @@ import { SummaryPipe } from './summary.pipe';
     AppComponent,
     CoursesManualComponent,
     SummaryPipe,
-    FavoriteComponent
+    FavoriteComponent,
+    BootstrapPanelComponent
     //CoursesComponent
   ],
   imports: [
