@@ -1,13 +1,15 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 // import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'favorite',
   templateUrl: './favorite.component.html',
-  styleUrls: ['./favorite.component.css']
+  styleUrls: ['./favorite.component.css'],
+  encapsulation: ViewEncapsulation.Emulated // emulated(default) => emulates shadow dom, native =>
+  //styles: [`.class {}`] // last defined rules will override
   // inputs: ['isFavorite']// not advised
 })
-export class FavoriteComponent implements OnInit {
+export class FavoriteComponent  {
 
   // @Input('is-favorite') isFavorite: boolean;
   @Input('is-favorite') isFavorite: boolean;
@@ -15,10 +17,6 @@ export class FavoriteComponent implements OnInit {
 
   @Output('change') change = new EventEmitter();
 
-  constructor() { }
-
-  ngOnInit() {
-  }
 
   onClick() {
     this.isFavorite = !this.isFavorite;
