@@ -9,19 +9,23 @@ import { CoursesService } from './courses.service';
   selector: 'courses-manual', // <courses-manual></courses-manual>
   template: `
               <h2>{{title}}</h2>
-              <input #email (keyup.enter)="onSave(email.value)"/>
+              <input [(ngModel)]= "email" (keyup.enter)="onSave()"/>
             `
             // <button (keyup)="onSave($event)">Save</button>
             // <input  (keyup.enter)="onSave($event)"/>
+            // <input #email (keyup.enter)="onSave(email.value)"/>
+            //<input [value]= "email" (keyup.enter)="onSave()"/>
+            //<input [value]= "email" (keyup.enter)="email=$event.target.value ;onSave()"/>
 })
 export class CoursesManualComponent {
    title = "List of courses";
+   email = 'me@example.com';
 
-   onSave(email){
+   onSave(){
      //$event.stopPropogation; // to stop event propogation
      //if($event.keyCode === 13) console.log('Enter was pressed');
     //  console.log($event.target.value);
-    console.log(email);
+    console.log(this.email);
 
    }
 }
