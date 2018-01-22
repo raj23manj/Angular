@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 
 // components
 import { CoursesManualComponent } from './courses-manual.component';
+import { FavoriteComponent } from './favorite/favorite.component';
+
 //import { CoursesComponent } from './courses/courses.component';
 
 //services
@@ -21,7 +23,8 @@ import { SummaryPipe } from './summary.pipe';
   declarations: [
     AppComponent,
     CoursesManualComponent,
-    SummaryPipe
+    SummaryPipe,
+    FavoriteComponent
     //CoursesComponent
   ],
   imports: [

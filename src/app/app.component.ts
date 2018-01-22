@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular 23 app';
+
+  post = {
+    title: 'Angular 23 app',
+    isFavotite: true
+  };
+
 }
