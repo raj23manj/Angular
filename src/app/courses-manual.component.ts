@@ -9,14 +9,17 @@ import { CoursesService } from './courses.service';
   selector: 'courses-manual', // <courses-manual></courses-manual>
   template: `
               <h2>{{title}}</h2>
-              <button (click)="onSave($event)">Save</button>
+              <button (keyup.enter)="onSave($event)">Save</button>
             `
+            // <button (keyup)="onSave($event)">Save</button>
 })
 export class CoursesManualComponent {
    title = "List of courses";
 
-   onSave($event){
+   onSave(){
      //$event.stopPropogation; // to stop event propogation
-     console.log('button clicked', $event);
+     //if($event.keyCode === 13) console.log('Enter was pressed');
+     console.log('Enter was pressed');
+
    }
 }
