@@ -12,10 +12,16 @@ import { CoursesManualComponent } from './courses-manual.component';
 //services
 import { CoursesService } from './courses.service';
 
+//Pipes
+import { SummaryPipe } from './summary.pipe';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    CoursesManualComponent
+    CoursesManualComponent,
+    SummaryPipe
     //CoursesComponent
   ],
   imports: [
