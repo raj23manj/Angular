@@ -104,6 +104,10 @@
 }" -->
 
 
-<span *ngIf="task.assignee">
+<!-- <span *ngIf="task.assignee">
   {{ task.assignee?.name }}
-</span>
+</span> -->
+
+<!-- <input typr="text" appInputFormat> -->
+<!-- <input typr="text" appInputFormat [format]="'uppercase'"> -->
+<input typr="text" [appInputFormat]="'uppercase'">
