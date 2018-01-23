@@ -19,6 +19,9 @@ import { CoursesService } from './courses.service';
 import { SummaryPipe } from './summary.pipe';
 
 
+//Directives
+import { InputFormatDirective } from './input-format.directive';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import { SummaryPipe } from './summary.pipe';
     CoursesManualComponent,
     SummaryPipe,
     FavoriteComponent,
-    BootstrapPanelComponent
+    BootstrapPanelComponent,
+    InputFormatDirective
     //CoursesComponent
   ],
   imports: [
