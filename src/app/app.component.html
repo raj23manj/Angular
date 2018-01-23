@@ -75,8 +75,15 @@
 
 <button (click)="loadCourses()">Load Courses</button>
 
-<ul>
+<!-- <ul>
   <li *ngFor="let course of courses; even as isEven">
+    {{ course.name }} <span *ngIf="isEven">(EVEN)</span>
+    <button (click)="onRemove(course)">Remove</button>
+  </li>
+</ul> -->
+
+<ul>
+  <li *ngFor="let course of courses; trackBy: trackCourse">
     {{ course.name }} <span *ngIf="isEven">(EVEN)</span>
     <button (click)="onRemove(course)">Remove</button>
   </li>
