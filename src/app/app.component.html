@@ -9,7 +9,7 @@
   <ng-container class="body">Body</ng-container>
 </bootstrap-panel> -->
 
-
+<!-- approach 1 -->
 <!-- <div *ngIf="courses.length > 0">
     List of courses
 </div>
@@ -18,6 +18,7 @@
     No courses yet
 </div> -->
 
+<!-- approach 2 -->
 <!-- <div *ngIf="courses.length > 0; else noCourses">
     List of courses
 </div>
@@ -26,8 +27,8 @@
     No courses yet
 </ng-template> -->
 
-
-<div *ngIf="courses.length > 0; then coursesList else noCourses">
+<!-- approach 3 -->
+<!-- <div *ngIf="courses.length > 0; then coursesList else noCourses">
 </div>
 
 <ng-template #coursesList>
@@ -36,4 +37,12 @@
 
 <ng-template #noCourses>
     No courses yet
-</ng-template>
+</ng-template> -->
+
+<div [hidden]="courses.length == 0">
+  List of courses
+</div>
+
+<div [hidden]="courses.length > 0">
+  No Courses Yet
+</div>
