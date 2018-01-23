@@ -1,9 +1,20 @@
 <!-- <p (click)="onClick()">
   favorite works! {{ isFavorite }}
 </p> -->
-<span
+<!-- <span
   class="glyphicon"
   [class.glyphicon-star]="isFavorite"
   [class.glyphicon-star-empty]="!isFavorite"
-  (click)="onClick()"
-  >here</span>
+  (click)="onClick()">
+  here
+</span> -->
+
+<span
+  class="glyphicon"
+  [ngClass]="{
+    'glyphicon-star': isFavorite,
+    'glyphicon-star-empty': !isFavorite
+  }"
+  (click)="onClick()">
+  here
+</span>
