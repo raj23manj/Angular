@@ -1,10 +1,39 @@
-<h1> Angular</h1>
+<h1 class='col-md-5'> Angular</h1>
 <!-- <courses-manual></courses-manual> -->
 <!-- <favorite [is-favorite]="post.isFavorite" (change)="onFavoriteChange($event)"></favorite> -->
 <!-- <favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChange()"></favorite> -->
 
 <!-- <bootstrap-panel [body]="body"> -->
-<bootstrap-panel>
+<!-- <bootstrap-panel>
   <ng-container class="heading">Hello</ng-container>
   <ng-container class="body">Body</ng-container>
-</bootstrap-panel>
+</bootstrap-panel> -->
+
+
+<!-- <div *ngIf="courses.length > 0">
+    List of courses
+</div>
+
+<div *ngIf="courses.length == 0">
+    No courses yet
+</div> -->
+
+<!-- <div *ngIf="courses.length > 0; else noCourses">
+    List of courses
+</div>
+
+<ng-template #noCourses>
+    No courses yet
+</ng-template> -->
+
+
+<div *ngIf="courses.length > 0; then coursesList else noCourses">
+</div>
+
+<ng-template #coursesList>
+    List of courses
+</ng-template>
+
+<ng-template #noCourses>
+    No courses yet
+</ng-template>

@@ -13,13 +13,15 @@ import { FavoriteChangedEventArgs } from './favorite/favorite.component'
 export class AppComponent {
   title = 'Angular 23 app';
 
-  post = {
-    title: 'Angular 23 app',
-    isFavotite: true
-  };
+  // post = {
+  //   title: 'Angular 23 app',
+  //   isFavotite: true
+  // };
+  //
+  // onFavoriteChange(eventArgs: FavoriteChangedEventArgs){
+  //   console.log("Favorite Changed:", eventArgs );
+  // }
 
-  onFavoriteChange(eventArgs: FavoriteChangedEventArgs){
-    console.log("Favorite Changed:", eventArgs );
-  }
+  courses = [1,2];
 
 }
