@@ -22,6 +22,8 @@ export class AppComponent {
   //   console.log("Favorite Changed:", eventArgs );
   // }
 
-  courses = [1,2];
+  // courses = [1,2];
+
+  viewMode = 'somethingelse';
 
 }
