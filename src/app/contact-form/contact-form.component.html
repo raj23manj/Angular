@@ -1,4 +1,5 @@
-<form>
+<!-- angular by default applies a ngForm directive -->
+<form #f="ngForm" (ngSubmit)="submit(f)">
   <div class="form-group">
     <label for="firstName">First Name</label>
     <!-- inspect the elements and see in console additional classes added by angular -->

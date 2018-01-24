@@ -11,4 +11,10 @@ export class ContactFormComponent  {
     console.log(x);
   }
 
+  submit(f) {
+    //f.valid
+    //f.value
+    console.log(f);
+  }
+
 }
