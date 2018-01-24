@@ -1,13 +1,32 @@
 <form>
   <div class="form-group">
     <label for="firstName">First Name</label>
-    <input required ngModel name="firstName" #firstName="ngModel" (change)="log(firstName)" id="firstName" type="text" class="form-control">
-    <div class="alert alert-danfer" *ngIf="firstName.touched && !firstName.valid">First Name is Required</div>
+    <input required
+           maxlength="10"
+           pattern="banana"
+           minlength="3"
+           ngModel
+           name="firstName"
+           #firstName="ngModel"
+           (change)="log(firstName)"
+           id="firstName"
+           type="text"
+           class="form-control">
+    <div class="alert alert-danfer" *ngIf="firstName.touched && !firstName.valid">
+      <div *ngIf="firstName.errors.required">First Name Required</div>
+      <div *ngIf="firstName.errors.minlength">First Name Should be Min {{ firstName.errors.minlength.requiredLength }} chars</div>
+      <div *ngIf="firstName.errors.pattern">Does not match pattern 'banana'</div>
+    </div>
   </div>
 
   <div class="form-group">
     <label for="comment">Comment</label>
-    <textarea ngModel name="comment" id="comment" cols="30" rows="10" class="form-control">
+    <textarea ngModel
+              name="comment"
+              id="comment"
+              cols="30"
+              rows="10"
+              class="form-control">
     </textarea>
   </div>
 
