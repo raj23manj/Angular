@@ -13,10 +13,17 @@
            id="firstName"
            type="text"
            class="form-control">
-    <div class="alert alert-danfer" *ngIf="firstName.touched && !firstName.valid">
-      <div *ngIf="firstName.errors.required">First Name Required</div>
-      <div *ngIf="firstName.errors.minlength">First Name Should be Min {{ firstName.errors.minlength.requiredLength }} chars</div>
-      <div *ngIf="firstName.errors.pattern">Does not match pattern 'banana'</div>
+    <div class="alert alert-danfer"
+         *ngIf="firstName.touched && !firstName.valid">
+      <div *ngIf="firstName.errors.required">
+        First Name Required
+      </div>
+      <div *ngIf="firstName.errors.minlength">
+        First Name Should be Min {{ firstName.errors.minlength.requiredLength }} chars
+      </div>
+      <div *ngIf="firstName.errors.pattern">
+        Does not match pattern 'banana'
+      </div>
     </div>
   </div>
 
