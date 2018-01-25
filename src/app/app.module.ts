@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { CoursesManualComponent } from './courses-manual.component';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
 
 //import { CoursesComponent } from './courses/courses.component';
 
@@ -32,7 +33,8 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     FavoriteComponent,
     BootstrapPanelComponent,
     InputFormatDirective,
-    ContactFormComponent
+    ContactFormComponent,
+    SignupFormComponent
     //CoursesComponent
   ],
   imports: [
