@@ -8,22 +8,19 @@ export class UserNameValidators {
       return null;
   }
 
-  static shouldBeUnique(control: AbstractControl)  : ValidationErrors | null
+  // asyncronous validators
+  static shouldBeUnique(control: AbstractControl)  : Promise<ValidationErrors | null> {
     // time being mocking a server
-    setTimeout(() => {
+
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
         if(control.value == 'rajdiv')
-          return { shouldBeUnique: true };
-
-        return null;
-      }
-    }, 2000);
-
-    //return null;
-    /*
-     => there will be an error coz this function expects a null or ValidationErrors
-        in case of setTimeout only, but this is wrong so do't do this
-    */
-
+          resolve({ shouldBeUnique: true });
+        else
+          resolve(null);
+      }, 2000);
+    });
+  }
 }
 
 
