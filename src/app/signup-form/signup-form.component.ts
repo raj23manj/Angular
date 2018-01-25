@@ -12,6 +12,7 @@ import { UserNameValidators } from './username.validators';
 
 export class SignupFormComponent {
   form = new FormGroup({
+    //username: new FormGroup({ ... })
     username: new FormControl('',[ Validators.required,
                                    Validators.minLength(3),
                                    UserNameValidators.cannotContainSpace
@@ -24,5 +25,23 @@ export class SignupFormComponent {
     return this.form.get('username');
   }
 
+  login() {
+    // usen with specia auth service
+    // let isValid = authServise.login(this.form.value);
+    //
+    // if(!isValid){
+    //   /*
+    //     setting errors at individual level
+    //     this.username.setErrors
+    //   */
+    //   // setting errors at form level
+    //   this.form.setErrors({
+    //     invalidLogin: true
+    //   });
+    // }
 
+    this.form.setErrors({
+      invalidLogin: true
+    });
+  }
 }
