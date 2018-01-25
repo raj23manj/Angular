@@ -22,6 +22,7 @@ import { SummaryPipe } from './summary.pipe';
 //Directives
 import { InputFormatDirective } from './input-format.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     BootstrapPanelComponent,
     InputFormatDirective,
     ContactFormComponent,
-    SignupFormComponent
+    SignupFormComponent,
+    NewCourseFormComponent
     //CoursesComponent
   ],
   imports: [
