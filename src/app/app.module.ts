@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
@@ -9,6 +8,7 @@ import { AppComponent } from './app.component';
 import { CoursesManualComponent } from './courses-manual.component';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
 
 //import { CoursesComponent } from './courses/courses.component';
 
@@ -22,6 +22,7 @@ import { SummaryPipe } from './summary.pipe';
 //Directives
 import { InputFormatDirective } from './input-format.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
 
 
 @NgModule({
@@ -32,12 +33,15 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     FavoriteComponent,
     BootstrapPanelComponent,
     InputFormatDirective,
-    ContactFormComponent
+    ContactFormComponent,
+    SignupFormComponent,
+    NewCourseFormComponent
     //CoursesComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     CoursesService
