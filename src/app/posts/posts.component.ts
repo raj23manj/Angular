@@ -22,10 +22,6 @@ export class PostsComponent implements OnInit {
     this.service.getPosts().subscribe(
       response => {
       this.posts = response.json();
-      },
-      error => {
-        console.log('An Unexpected Error Occurred.');
-        console.log('error');
       }
     );
   }
@@ -49,7 +45,7 @@ export class PostsComponent implements OnInit {
             console.log('bad Input');
           }
           else
-            console.log('An Unexpected Error Occurred.');
+            throw error;
           console.log('error');
         }
       );
@@ -60,10 +56,6 @@ export class PostsComponent implements OnInit {
         .subscribe(
           response => {
             console.log(response);
-          },
-          error => {
-            console.log('An Unexpected Error Occurred.');
-            console.log('error');
           }
         );
     //this.http.patch(this.url, JSON.stringify(post));
@@ -80,7 +72,7 @@ export class PostsComponent implements OnInit {
             if(error instanceof NotFoundError)
                 console.log('Post Already Deleted');
             else
-              console.log('An Unexpected Error Occurred.');
+              throw error;
             console.log(error);
           }
         );
