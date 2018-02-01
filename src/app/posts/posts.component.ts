@@ -20,8 +20,8 @@ export class PostsComponent implements OnInit {
 
   ngOnInit() {
     this.service.getAll().subscribe(
-      response => {
-      this.posts = response.json();
+      posts => {
+      this.posts = posts;
       }
     );
   }
@@ -32,9 +32,9 @@ export class PostsComponent implements OnInit {
     input.value = '';
     this.service.create(JSON.stringify(post))
       .subscribe(
-        response => {
+        newpost => {
           // post.id = response.json().id;
-          post['id'] = response.json().id;
+          post['id'] = newpost.id;
           // to push at the top of the list
           this.posts.splice(0, 0, post)
         },
@@ -54,8 +54,8 @@ export class PostsComponent implements OnInit {
   updatePost(post) {
     this.service.edit(post, JSON.stringify({isRead: true}))
         .subscribe(
-          response => {
-            console.log(response);
+          updatedPost => {
+            console.log(updatedPost);
           }
         );
     //this.http.patch(this.url, JSON.stringify(post));
@@ -64,7 +64,7 @@ export class PostsComponent implements OnInit {
   detelePost(post) {
     this.service.delete(post)
         .subscribe(
-          response => {
+          () => {
             let index = this.posts.indexOf(post);
             this.posts.splice(index, 1)
           },

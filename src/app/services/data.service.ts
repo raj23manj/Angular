@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 
 
@@ -17,21 +18,25 @@ export class DataService {
 
   getAll() {
     return this.http.get(this.url)
+               .map(response => response.json())
                .catch(this.handleError);
   }
 
   create(resource) {
     return this.http.post(this.url, resource)
+                    .map(response => response.json())
                     .catch(this.handleError);
   }
 
   edit(object, resource) {
     return this.http.patch(this.url + '/' + object.id, resource)
+               .map(response => response.json())
                .catch(this.handleError);
   }
 
   delete(object){  // use id directly
     return this.http.delete(this.url + '/' + object.id)
+                    .map(response => response.json())
                     .catch(this.handleError);
   }
 
