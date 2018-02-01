@@ -19,7 +19,7 @@ export class PostsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.getPosts().subscribe(
+    this.service.getAll().subscribe(
       response => {
       this.posts = response.json();
       }
@@ -30,7 +30,7 @@ export class PostsComponent implements OnInit {
     //let post: any = {title: input.value };
     let post = {title: input.value };
     input.value = '';
-    this.service.createPost(JSON.stringify(post))
+    this.service.create(JSON.stringify(post))
       .subscribe(
         response => {
           // post.id = response.json().id;
@@ -52,7 +52,7 @@ export class PostsComponent implements OnInit {
   }
 
   updatePost(post) {
-    this.service.editPost(post, JSON.stringify({isRead: true}))
+    this.service.edit(post, JSON.stringify({isRead: true}))
         .subscribe(
           response => {
             console.log(response);
@@ -62,7 +62,7 @@ export class PostsComponent implements OnInit {
   }
 
   detelePost(post) {
-    this.service.deletePost(post)
+    this.service.delete(post)
         .subscribe(
           response => {
             let index = this.posts.indexOf(post);
@@ -79,3 +79,71 @@ export class PostsComponent implements OnInit {
   }
 
 }
+
+// export class PostsComponent implements OnInit {
+//   posts:any[];
+//
+//   constructor(private service: PostService) {
+//   }
+//
+//   ngOnInit() {
+//     this.service.getPosts().subscribe(
+//       response => {
+//       this.posts = response.json();
+//       }
+//     );
+//   }
+//
+//   createPost(input: HTMLInputElement) {
+//     //let post: any = {title: input.value };
+//     let post = {title: input.value };
+//     input.value = '';
+//     this.service.createPost(JSON.stringify(post))
+//       .subscribe(
+//         response => {
+//           // post.id = response.json().id;
+//           post['id'] = response.json().id;
+//           // to push at the top of the list
+//           this.posts.splice(0, 0, post)
+//         },
+//         (error: AppError) => {
+//           if(error instanceof BadInput){
+//             //this.form.setErrors(error.json())
+//             //this.form.setErrors(error.originalError)
+//             console.log('bad Input');
+//           }
+//           else
+//             throw error;
+//           console.log('error');
+//         }
+//       );
+//   }
+//
+//   updatePost(post) {
+//     this.service.editPost(post, JSON.stringify({isRead: true}))
+//         .subscribe(
+//           response => {
+//             console.log(response);
+//           }
+//         );
+//     //this.http.patch(this.url, JSON.stringify(post));
+//   }
+//
+//   detelePost(post) {
+//     this.service.deletePost(post)
+//         .subscribe(
+//           response => {
+//             let index = this.posts.indexOf(post);
+//             this.posts.splice(index, 1)
+//           },
+//           (error: AppError) => {
+//             if(error instanceof NotFoundError)
+//                 console.log('Post Already Deleted');
+//             else
+//               throw error;
+//             console.log(error);
+//           }
+//         );
+//   }
+//
+// }
