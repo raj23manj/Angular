@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http'
 
 @Component({
@@ -7,12 +7,18 @@ import { Http } from '@angular/http'
   styleUrls: ['./posts.component.css']
 })
 
-export class PostsComponent{
+export class PostsComponent implements OnInit{
   posts: any[];
   private url = 'http://jsonplaceholder.typicode.com/posts';
 
   constructor(private http: Http) {
-    http.get(this.url)
+
+  }
+
+  // lifrcycle hooks
+  // for performance don not call it in constructor
+  ngOnInit {
+    this.http.get(this.url)
         .subscribe((response => {
           this.posts = response.json();
         }));
@@ -22,6 +28,7 @@ export class PostsComponent{
     //let post: any = {title: input.value };
     let post = {title: input.value };
     input.value = '';
+
     this.http.post(this.url, JSON.stringify(post))
         .subscribe((response) => {
           // post.id = response.json().id;
