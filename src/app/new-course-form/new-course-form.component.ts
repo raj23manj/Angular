@@ -36,14 +36,14 @@ export class NewCourseFormComponent  {
   //   topics: new FormArray([])
   // });
 
-  constructor(fb: FormBuilder){
-    this.form = fb.group({
-      name: ['', Validators.required],
-      contact: fb.group({
-                          email: [],
-                          phone: []
-                        }),
-      topics: fb.array([])
-    });
-  }
+  // constructor(fb: FormBuilder){
+  //   this.form = fb.group({
+  //     name: ['', Validators.required],
+  //     contact: fb.group({
+  //                         email: [],
+  //                         phone: []
+  //                       }),
+  //     topics: fb.array([])
+  //   });
+  // }
 }
