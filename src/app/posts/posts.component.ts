@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from './../services/post.service';
 
+import { AppError } from './../common/app.error';
+import { NotFoundError } from './../common/not-found.error';
+import { BadInput } from './../common/bad-input';
+
 
 @Component({
   selector: 'posts',
@@ -20,7 +24,7 @@ export class PostsComponent implements OnInit {
       this.posts = response.json();
       },
       error => {
-        alert('An Unexpected Error Occurred.');
+        console.log('An Unexpected Error Occurred.');
         console.log('error');
       }
     );
@@ -38,12 +42,14 @@ export class PostsComponent implements OnInit {
           // to push at the top of the list
           this.posts.splice(0, 0, post)
         },
-        (error: Response) => {
-          if(error.status === 400){
+        (error: AppError) => {
+          if(error instanceof BadInput){
             //this.form.setErrors(error.json())
+            //this.form.setErrors(error.originalError)
+            console.log('bad Input');
           }
           else
-            alert('An Unexpected Error Occurred.');
+            console.log('An Unexpected Error Occurred.');
           console.log('error');
         }
       );
@@ -56,7 +62,7 @@ export class PostsComponent implements OnInit {
             console.log(response);
           },
           error => {
-            alert('An Unexpected Error Occurred.');
+            console.log('An Unexpected Error Occurred.');
             console.log('error');
           }
         );
@@ -70,12 +76,12 @@ export class PostsComponent implements OnInit {
             let index = this.posts.indexOf(post);
             this.posts.splice(index, 1)
           },
-          (error: Response) => {
-            if(error.status === 404)
-                alert('Post Already Deleted');
+          (error: AppError) => {
+            if(error instanceof NotFoundError)
+                console.log('Post Already Deleted');
             else
-              alert('An Unexpected Error Occurred.');
-            console.log('error');
+              console.log('An Unexpected Error Occurred.');
+            console.log(error);
           }
         );
   }
