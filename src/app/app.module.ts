@@ -14,6 +14,7 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
 
 //services
 import { CoursesService } from './courses.service';
+import { PostService } from './services/post.service';
 
 //Pipes
 import { SummaryPipe } from './summary.pipe';
@@ -47,7 +48,8 @@ import { PostsComponent } from './posts/posts.component';
     HttpModule
   ],
   providers: [
-    CoursesService
+    CoursesService,
+    PostService
   ],
   bootstrap: [AppComponent]
 })

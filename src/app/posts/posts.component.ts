@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http'
+import { PostService } from './../services/post.service';
+
 
 @Component({
   selector: 'posts',
@@ -7,39 +8,33 @@ import { Http } from '@angular/http'
   styleUrls: ['./posts.component.css']
 })
 
-export class PostsComponent implements OnInit{
-  posts: any[];
-  private url = 'http://jsonplaceholder.typicode.com/posts';
+export class PostsComponent implements OnInit {
+  posts:any[];
 
-  constructor(private http: Http) {
-
+  constructor(private service: PostService) {
   }
 
-  // lifrcycle hooks
-  // for performance don not call it in constructor
-  ngOnInit {
-    this.http.get(this.url)
-        .subscribe((response => {
-          this.posts = response.json();
-        }));
+  ngOnInit() {
+    this.service.getPosts().subscribe( response => {
+      this.posts = response.json();
+    });
   }
 
   createPost(input: HTMLInputElement) {
     //let post: any = {title: input.value };
     let post = {title: input.value };
     input.value = '';
-
-    this.http.post(this.url, JSON.stringify(post))
-        .subscribe((response) => {
-          // post.id = response.json().id;
-          post['id'] = response.json().id;
-          // to push at the top of the list
-          this.posts.splice(0, 0, post)
-        });
+    this.service.createPost(JSON.stringify(post))
+      .subscribe((response) => {
+        // post.id = response.json().id;
+        post['id'] = response.json().id;
+        // to push at the top of the list
+        this.posts.splice(0, 0, post)
+      });
   }
 
   updatePost(post) {
-    this.http.patch(this.url + '/' + post.id, JSON.stringify({isRead: true}))
+    this.service.editPost(post, JSON.stringify({isRead: true}))
         .subscribe(response => {
           console.log(response);
         });
@@ -47,11 +42,10 @@ export class PostsComponent implements OnInit{
   }
 
   detelePost(post) {
-    this.http.delete(this.url + '/' + post.id)
+    this.service.deletePost(post)
         .subscribe(response => {
           let index = this.posts.indexOf(post);
           this.posts.splice(index, 1)
-          console.log(response);
         });
   }
 
