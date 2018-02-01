@@ -17,6 +17,9 @@ export class PostsComponent implements OnInit {
   ngOnInit() {
     this.service.getPosts().subscribe( response => {
       this.posts = response.json();
+    }, error => {
+      alert('An Unexpected Error Occurred.');
+      console.log('error');
     });
   }
 
@@ -30,6 +33,9 @@ export class PostsComponent implements OnInit {
         post['id'] = response.json().id;
         // to push at the top of the list
         this.posts.splice(0, 0, post)
+      }, error => {
+        alert('An Unexpected Error Occurred.');
+        console.log('error');
       });
   }
 
@@ -37,6 +43,9 @@ export class PostsComponent implements OnInit {
     this.service.editPost(post, JSON.stringify({isRead: true}))
         .subscribe(response => {
           console.log(response);
+        }, error => {
+          alert('An Unexpected Error Occurred.');
+          console.log('error');
         });
     //this.http.patch(this.url, JSON.stringify(post));
   }
@@ -46,6 +55,9 @@ export class PostsComponent implements OnInit {
         .subscribe(response => {
           let index = this.posts.indexOf(post);
           this.posts.splice(index, 1)
+        }, error => {
+          alert('An Unexpected Error Occurred.');
+          console.log('error');
         });
   }
 
