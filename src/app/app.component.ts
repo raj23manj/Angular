@@ -55,13 +55,13 @@ export class AppComponent {
   //   return course ? course.id : undefined;
   // }
 
-  canSave=true;
-
-  task = {
-    title: 'Review application',
-    assignee: {
-      name: null //'John Smith'
-    }
-  }
+  // canSave=true;
+  //
+  // task = {
+  //   title: 'Review application',
+  //   assignee: {
+  //     name: null //'John Smith'
+  //   }
+  // }
 
 }
