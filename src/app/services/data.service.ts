@@ -4,6 +4,7 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+//import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/observable/throw';
 
 
@@ -35,13 +36,24 @@ export class DataService {
   }
 
   delete(object){  // use id directly
+    // promises not advisable, Observable => lazy(won't execute until subscribe), promises => eager(will execute)
+    // all the operators which are powerful are Observable's
+    /*
+      we can convert Observable to promises
+      Observable's are powerful
+      prefer Observable's
+      Observable's allow reactive programming
+      Observable's provide powerful operators
+      Observable's are lazy
+    */
     // success
-    // return this.http.delete(this.url + '/' + object.id)
-    //                 .map(response => response.json())
-    //                 .catch(this.handleError);
+    return this.http.delete(this.url + '/' + object.id)
+                    .map(response => response.json())
+                    //.toPromise()
+                    .catch(this.handleError);
 
     // fail
-    return Observable.throw(new AppError());
+    // return Observable.throw(new AppError());
   }
 
 
